@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Order Delivery Details</h1>
+    <form method="POST" data-th-action="@{/pizza/order}" data-th-object="${delivery}">
+        <table>
+            <tr>
+                <td>
+                    Name:
+                </td>
+                <td>
+                    <input type="text" name="name" data-th-field="*{name}"> 
+                    <span 
+                        class="error"
+                        data-th-if="${#fields.hasErrors('name')}"
+                        data-th-errors="*{name}"
+                        style="color:red"
+					></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Address:
+                </td>
+                <td>
+                    <input type="text" name="address" data-th-field="*{address}">
+                    <span 
+                        class="error"
+                        data-th-if="${#fields.hasErrors('address')}"
+                        data-th-errors="*{address}"
+                        style="color:red"
+					></span> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Phone:
+                </td>
+                <td>
+                    <input type="text" name="phone" data-th-field="*{phone}"> 
+                    <span 
+                        class="error"
+                        data-th-if="${#fields.hasErrors('phone')}"
+                        data-th-errors="*{phone}"
+                        style="color:red"
+					></span>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Rush:
+                </td>
+                <td>
+                    <input type="checkbox" name="rush" data-th-field="*{rush}" default>
+                    <span 
+                        class="error"
+                        data-th-if="${#fields.hasErrors('rush')}"
+                        data-th-errors="*{rush}"
+                        style="color:red"
+					></span> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Comments:
+                </td>
+                <td>
+                    <input type="text" name="comments" data-th-field="*{comments}">
+                    <span 
+                        class="error"
+                        data-th-if="${#fields.hasErrors('comments')}"
+                        data-th-errors="*{comments}"
+                        style="color:red"
+					></span> 
+                </td>
+            </tr>
+        </table>
+        <button type="submit" data-th-formaction="@{/}" formmethod="GET">Cancel Order</button>
+        <button type="submit">Place Order</button>
+    </form>
+</body>
+</html>
